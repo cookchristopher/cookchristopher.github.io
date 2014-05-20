@@ -1,0 +1,23 @@
+body,
+html {
+  background-color: #E36C4F;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+}
+
+.container {
+  margin: 50px auto;
+  position: relative;
+  width: 750px;
+}
+
+.name {
+  font-size: 80px;
+}
+
+.info {
+  font-size: 42px;
+}
