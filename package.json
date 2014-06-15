@@ -1,0 +1,13 @@
+{
+  "version": "0.0.1",
+  "name": "cookchristopher.github.io",
+  "description": "cookchristopher.github.io",
+  "devDependencies": {
+    "grunt": "0.4.2",
+    "grunt-contrib-compass": "0.7.2",
+    "grunt-contrib-watch": "0.5.3",
+    "grunt-scss-lint": "0.0.9",
+    "grunt-spritesmith" : "1.24.0",
+    "time-grunt": "0.2.10"
+  }
+}
