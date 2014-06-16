@@ -3,10 +3,7 @@ module.exports = function (grunt) {
     all: [
       'assets/css/*.scss',
       'assets/css/**/*.scss'
-    ],
-    options: {
-      reporterOutput: 'report/scss-lint-report.xml'
-    }
+    ]
   });
   grunt.loadNpmTasks('grunt-scss-lint');
 };

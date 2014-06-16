@@ -5,15 +5,17 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', 'lint and watch for changes', [
     'sprite',
-    'compass:dev',
-    'scsslint',
+    'lint',
+    'compass',
+    'uncss',
     'watch'
   ]);
 
-  grunt.registerTask('lint', 'lint SCSS', function () {
+  grunt.registerTask('lint', 'lint JS & SCSS', function () {
     var tasks;
 
     tasks = [
+      'jshint',
       'scsslint'
     ];
 
