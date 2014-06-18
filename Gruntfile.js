@@ -13,6 +13,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('lint', 'lint JS & SCSS', [
     'jshint',
+    'jscs',
     'scsslint'
   ]);
 
