@@ -15,4 +15,12 @@ module.exports = function (grunt) {
     'jshint',
     'scsslint'
   ]);
+
+  grunt.registerTask('build', 'build for deployment', [
+    'clean',
+    'sprite',
+    'lint',
+    'compass',
+    'cssmin'
+  ]);
 };

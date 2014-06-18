@@ -13,31 +13,5 @@
   "quotmark": "single",
   "sub": true,
   "trailing": true,
-  "undef": true,
-  "globals": {
-    "afterEach": true,
-    "beforeEach": true,
-    "browser": true,
-    "by": true,
-    "define": true,
-    "describe": true,
-    "element": true,
-    "expect": true,
-    "inject": true,
-    "it": true,
-    "jasmine": true,
-    "Modernizr": true,
-    "module": true,
-    "protractor": true,
-    "require": true,
-    "requirejs": true,
-    "runs": true,
-    "sleep": true,
-    "spyOn": true,
-    "xit": true,
-    "xdescribe": true,
-    "waits": true,
-    "waitsFor": true,
-    "mock": true
-  }
+  "undef": true
 }
