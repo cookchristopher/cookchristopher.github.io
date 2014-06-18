@@ -22,6 +22,7 @@ module.exports = function (grunt) {
     'sprite',
     'lint',
     'compass',
-    'cssmin'
+    'cssmin',
+    'copy'
   ]);
 };

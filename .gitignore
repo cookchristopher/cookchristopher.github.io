@@ -5,6 +5,7 @@
 assets/css/*
 assets/img/sprite*
 assets/sass/sprites/*
+dist/
 node_modules
 npm-debug.log
 report
