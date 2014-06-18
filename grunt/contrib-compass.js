@@ -2,8 +2,8 @@ module.exports = function (grunt) {
   grunt.config('compass', {
     dev: {
       options: {
-        sassDir: 'assets/css/',
-        cssDir: '<%= compass.dev.options.sassDir %>',
+        sassDir: 'assets/sass/',
+        cssDir: 'assets/css',
         outputStyle: 'nested',
         noLineComments: false,
         debugInfo: false

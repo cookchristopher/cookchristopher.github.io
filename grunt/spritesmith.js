@@ -11,8 +11,8 @@ module.exports = function (grunt) {
       src: ['assets/img/' + target + '/*.png'],
       destImg: 'assets/img/sprite-' + target + '.png',
       imgPath: '../img/sprite-' + target + '.png',
-      destCSS: 'assets/css/sprites/_sprite-' + target + '.scss',
-      cssTemplate: 'assets/css/template.mustache',
+      destCSS: 'assets/sass/sprites/_sprite-' + target + '.scss',
+      cssTemplate: 'assets/sass/template.mustache',
       engine: 'pngsmith',
       cssOpts: {
         target: target

@@ -2,8 +2,9 @@
 .DS_Store
 .htaccess
 .sass-cache
-assets/css/sprites/*
+assets/css/*
 assets/img/sprite*
+assets/sass/sprites/*
 node_modules
 npm-debug.log
 report

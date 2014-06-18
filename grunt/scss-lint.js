@@ -1,8 +1,8 @@
 module.exports = function (grunt) {
   grunt.config('scsslint', {
     all: [
-      'assets/css/*.scss',
-      'assets/css/**/*.scss'
+      'assets/sass/*.scss',
+      'assets/sass/**/*.scss'
     ]
   });
   grunt.loadNpmTasks('grunt-scss-lint');
