@@ -1,10 +1,10 @@
 @import 'sprites/_sprite-icons';
 
-$font-colour: #3a3a3a;
+$font-color: #3a3a3a;
 
 body,
 html {
-  color: $font-colour;
+  color: $font-color;
   font-family: 'Raleway', sans-serif;
   font-size: 16px;
   margin: 0;
@@ -12,7 +12,7 @@ html {
 }
 
 a {
-  color: $font-colour;
+  color: $font-color;
   text-decoration: none;
 
   &:hover {
@@ -48,6 +48,10 @@ p {
 
   .about-me {
     margin-bottom: 30px;
+
+    a {
+      border-bottom: 1px solid $font-color;
+    }
   }
 
   .contact-icons {
