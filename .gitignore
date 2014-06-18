@@ -2,8 +2,6 @@
 .DS_Store
 .htaccess
 .sass-cache
-assets/css/*
-assets/img/sprite*
 assets/sass/sprites/*
 dist/
 node_modules
