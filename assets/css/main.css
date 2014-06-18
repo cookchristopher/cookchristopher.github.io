@@ -1,0 +1,77 @@
+/* line 60, ../sass/sprites/_sprite-icons.scss */
+.icons-github {
+  background-image: url(../img/sprite-icons.png);
+  height: 48px;
+  width: 48px;
+  background-position: 0px 0px;
+  display: inline-block; }
+
+/* line 65, ../sass/sprites/_sprite-icons.scss */
+.icons-linkedin {
+  background-image: url(../img/sprite-icons.png);
+  height: 48px;
+  width: 48px;
+  background-position: 0px -48px;
+  display: inline-block; }
+
+/* line 70, ../sass/sprites/_sprite-icons.scss */
+.icons-mail {
+  background-image: url(../img/sprite-icons.png);
+  height: 48px;
+  width: 48px;
+  background-position: 0px -96px;
+  display: inline-block; }
+
+/* line 6, ../sass/main.scss */
+body,
+html {
+  color: #3a3a3a;
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0; }
+
+/* line 14, ../sass/main.scss */
+a {
+  color: #3a3a3a;
+  text-decoration: none; }
+  /* line 18, ../sass/main.scss */
+  a:hover {
+    color: #e64c65; }
+
+/* line 23, ../sass/main.scss */
+h1, h2 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 90px;
+  font-weight: 400;
+  letter-spacing: 7px;
+  margin-bottom: 0; }
+
+/* line 31, ../sass/main.scss */
+h2 {
+  font-size: 45px;
+  margin-top: 30px; }
+
+/* line 38, ../sass/main.scss */
+p {
+  line-height: 30px; }
+
+/* line 42, ../sass/main.scss */
+.container {
+  height: 100%;
+  margin: 0 auto;
+  max-width: 850px;
+  text-align: center;
+  width: 80%; }
+  /* line 49, ../sass/main.scss */
+  .container .about-me {
+    margin-bottom: 30px; }
+    /* line 52, ../sass/main.scss */
+    .container .about-me a {
+      border-bottom: 1px solid #3a3a3a; }
+  /* line 57, ../sass/main.scss */
+  .container .contact-icons {
+    margin-top: 30px; }
+  /* line 61, ../sass/main.scss */
+  .container .contact-icon {
+    margin-right: 15px; }
