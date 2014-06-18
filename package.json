@@ -13,6 +13,7 @@
     "grunt-jscs-checker": "0.4.0",
     "grunt-scss-lint": "0.0.9",
     "grunt-spritesmith": "1.24.0",
-    "time-grunt": "0.2.10"
+    "time-grunt": "0.2.10",
+    "grunt-build-control": "^0.1.3"
   }
 }

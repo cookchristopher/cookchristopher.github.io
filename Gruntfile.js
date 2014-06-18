@@ -23,6 +23,7 @@ module.exports = function (grunt) {
     'lint',
     'compass',
     'cssmin',
-    'copy'
+    'copy',
+    'buildcontrol'
   ]);
 };
