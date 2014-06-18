@@ -4,7 +4,9 @@ module.exports = function (grunt) {
       files: [
         {
           src: [
+            'CNAME',
             'index.html',
+            'README.md',
             'assets/css/main.css',
             'assets/img/sprite-*.png'
           ],
