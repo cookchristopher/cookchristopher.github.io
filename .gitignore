@@ -1,8 +1,0 @@
-*.css
-.DS_Store
-.htaccess
-.sass-cache
-assets/css/sprites/*
-assets/img/sprite*
-node_modules
-npm-debug.log
