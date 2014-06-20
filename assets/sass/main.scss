@@ -12,6 +12,7 @@ html {
 }
 
 a {
+  border-bottom: 1px solid $font-color;
   color: $font-color;
   text-decoration: none;
 
@@ -48,17 +49,13 @@ p {
 
   .about-me {
     margin-bottom: 30px;
+  }
+
+  .contact-links {
+    margin-top: 30px;
 
     a {
-      border-bottom: 1px solid $font-color;
+      margin-right: 10px;
     }
-  }
-
-  .contact-icons {
-    margin-top: 30px;
-  }
-
-  .contact-icon {
-    margin-right: 15px;
   }
 }

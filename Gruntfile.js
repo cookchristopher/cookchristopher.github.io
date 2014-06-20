@@ -5,7 +5,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', 'lint and watch for changes', [
     'clean',
-    'sprite',
     'lint',
     'compass',
     'watch'
@@ -19,7 +18,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', 'build for deployment', [
     'clean',
-    'sprite',
     'lint',
     'compass',
     'cssmin',

@@ -33,13 +33,14 @@ html {
 
 /* line 14, ../sass/main.scss */
 a {
+  border-bottom: 1px solid #3a3a3a;
   color: #3a3a3a;
   text-decoration: none; }
-  /* line 18, ../sass/main.scss */
+  /* line 19, ../sass/main.scss */
   a:hover {
     color: #e64c65; }
 
-/* line 23, ../sass/main.scss */
+/* line 24, ../sass/main.scss */
 h1, h2 {
   font-family: 'Oswald', sans-serif;
   font-size: 90px;
@@ -47,31 +48,28 @@ h1, h2 {
   letter-spacing: 7px;
   margin-bottom: 0; }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 h2 {
   font-size: 45px;
   margin-top: 30px; }
 
-/* line 38, ../sass/main.scss */
+/* line 39, ../sass/main.scss */
 p {
   line-height: 30px; }
 
-/* line 42, ../sass/main.scss */
+/* line 43, ../sass/main.scss */
 .container {
   height: 100%;
   margin: 0 auto;
   max-width: 850px;
   text-align: center;
   width: 80%; }
-  /* line 49, ../sass/main.scss */
+  /* line 50, ../sass/main.scss */
   .container .about-me {
     margin-bottom: 30px; }
-    /* line 52, ../sass/main.scss */
-    .container .about-me a {
-      border-bottom: 1px solid #3a3a3a; }
-  /* line 57, ../sass/main.scss */
-  .container .contact-icons {
+  /* line 54, ../sass/main.scss */
+  .container .contact-links {
     margin-top: 30px; }
-  /* line 61, ../sass/main.scss */
-  .container .contact-icon {
-    margin-right: 15px; }
+    /* line 57, ../sass/main.scss */
+    .container .contact-links a {
+      margin-right: 10px; }
