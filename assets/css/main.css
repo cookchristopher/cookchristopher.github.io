@@ -1,28 +1,4 @@
-/* line 60, ../sass/sprites/_sprite-icons.scss */
-.icons-github {
-  background-image: url(../img/sprite-icons.png);
-  height: 48px;
-  width: 48px;
-  background-position: 0px 0px;
-  display: inline-block; }
-
-/* line 65, ../sass/sprites/_sprite-icons.scss */
-.icons-linkedin {
-  background-image: url(../img/sprite-icons.png);
-  height: 48px;
-  width: 48px;
-  background-position: 0px -48px;
-  display: inline-block; }
-
-/* line 70, ../sass/sprites/_sprite-icons.scss */
-.icons-mail {
-  background-image: url(../img/sprite-icons.png);
-  height: 48px;
-  width: 48px;
-  background-position: 0px -96px;
-  display: inline-block; }
-
-/* line 6, ../sass/main.scss */
+/* line 3, ../sass/main.scss */
 body,
 html {
   color: #3a3a3a;
@@ -31,45 +7,31 @@ html {
   margin: 0;
   padding: 0; }
 
-/* line 14, ../sass/main.scss */
-a {
-  border-bottom: 1px solid #3a3a3a;
-  color: #3a3a3a;
-  text-decoration: none; }
-  /* line 19, ../sass/main.scss */
-  a:hover {
-    color: #e64c65; }
-
-/* line 24, ../sass/main.scss */
-h1, h2 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 90px;
-  font-weight: 400;
-  letter-spacing: 7px;
-  margin-bottom: 0; }
-
-/* line 32, ../sass/main.scss */
-h2 {
-  font-size: 45px;
-  margin-top: 30px; }
-
-/* line 39, ../sass/main.scss */
-p {
-  line-height: 30px; }
-
-/* line 43, ../sass/main.scss */
+/* line 12, ../sass/main.scss */
 .container {
   height: 100%;
   margin: 0 auto;
   max-width: 850px;
   text-align: center;
   width: 80%; }
-  /* line 50, ../sass/main.scss */
+  /* line 19, ../sass/main.scss */
   .container .about-me {
     margin-bottom: 30px; }
-  /* line 54, ../sass/main.scss */
-  .container .contact-links {
-    margin-top: 30px; }
-    /* line 57, ../sass/main.scss */
-    .container .contact-links a {
-      margin-right: 10px; }
+    /* line 22, ../sass/main.scss */
+    .container .about-me a {
+      border-bottom: 1px solid #3a3a3a;
+      color: #3a3a3a;
+      text-decoration: none; }
+      /* line 27, ../sass/main.scss */
+      .container .about-me a:hover {
+        color: #e64c65; }
+    /* line 32, ../sass/main.scss */
+    .container .about-me h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 90px;
+      font-weight: 400;
+      letter-spacing: 7px;
+      margin-bottom: 0; }
+    /* line 40, ../sass/main.scss */
+    .container .about-me p {
+      line-height: 30px; }

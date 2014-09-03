@@ -1,5 +1,3 @@
-@import 'sprites/_sprite-icons';
-
 $font-color: #3a3a3a;
 
 body,
@@ -11,35 +9,6 @@ html {
   padding: 0;
 }
 
-a {
-  border-bottom: 1px solid $font-color;
-  color: $font-color;
-  text-decoration: none;
-
-  &:hover {
-    color: #e64c65;
-  }
-}
-
-h1 {
-  font-family: 'Oswald', sans-serif;
-  font-size: 90px;
-  font-weight: 400;
-  letter-spacing: 7px;
-  margin-bottom: 0;
-}
-
-h2 {
-  @extend h1;
-
-  font-size: 45px;
-  margin-top: 30px;
-}
-
-p {
-  line-height: 30px;
-}
-
 .container {
   height: 100%;
   margin: 0 auto;
@@ -49,13 +18,27 @@ p {
 
   .about-me {
     margin-bottom: 30px;
-  }
-
-  .contact-links {
-    margin-top: 30px;
 
     a {
-      margin-right: 10px;
+      border-bottom: 1px solid $font-color;
+      color: $font-color;
+      text-decoration: none;
+
+      &:hover {
+        color: #e64c65;
+      }
+    }
+
+    h1 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 90px;
+      font-weight: 400;
+      letter-spacing: 7px;
+      margin-bottom: 0;
+    }
+
+    p {
+      line-height: 30px;
     }
   }
 }
