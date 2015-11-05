@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Christopher Cook - Principles used to achieve true TDD</title>
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <link rel="alternate" type="application/rss+xml" title="My Blog" href="/rss.xml">
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+</head>
+<body>
+
+  <nav class="main-nav">
+    
+        <a href="/"> <span class="arrow">←</span> Home </a>
+    
+
+    
+        
+            <a href="/about">About </a>
+        
+    
+</nav>
+
+
+  
+
+  <section id="wrapper" class="">
+    <article class="post">
+    <header>
+        <h1>Principles used to achieve true TDD</h1>
+        <h2 class="headline">November 5, 2015</h2>
+    </header>
+    <section id="post-body">
+        <h2>Intro</h2>
+
+<p>When Sky Store started out, the web development team had the requirement of getting something out on the market as quickly as possible. This meant a few important things suffered, primarily the testing strategy. In this post I’m going to talk a bit about how the team took our AngularJS from extremely limited unit test coverage, to it’s current approach of following a pure TDD approach. Most of the points mentioned here are applicable to virtually any codebase, not specifically Angular.</p>
+
+<p>The benefits of TDD are well documented elsewhere so I’m not going to regurgitate that information, though I will include the following quote which really helped us think about our approach.</p>
+
+<blockquote>
+<p>&quot;When you realise that it&#39;s all about specifying behaviour and not writing tests, your point of view shifts.&quot;</p>
+</blockquote>
+
+<h2>Our tech stack</h2>
+
+<p>Using the combination of Karma and Jasmine was pretty much the de facto choice for unit testing when we started out, along with using Grunt as a task runner. We later added Sinon into the mix, because it provides fantastic stubbing functionality that completely changed our approach to unit testing. Initially we also used Istanbul for code coverage, though we later removed it, which will be covered shortly.</p>
+
+<h2>Our 4 principles of unit testing</h2>
+
+<p>When changing our approach to unit testing, we came up with a number of principles that we want to follow when writing unit tests. They&#39;re by no means the best rules to follow, and as always there are some circumstances where they don&#39;t apply, but they helped us get to achieve a true Test Driven Development environment.</p>
+
+<h4>Mock/Stub your dependencies</h4>
+
+<p>I could write an entire post on methods for stubbing dependencies but I&#39;ll try and cover it briefly here. This is the part where Sinon comes in handy. Let&#39;s say you’re testing a controller that hits a service. You don’t want the controller unit tests to fail if there’s an issue in the service, your service unit tests should take care of that. You want to remove all possible outside influences when testing a single unit of code. Your automated feature tests will cover the rest. We even extend this behaviour to Angular components like $scope, $window etc. This means that our unit tests have very few outside influences that could potentially skew the results of the test. So as an example, here’s how we would create a stub of $scope using Sinon:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">var service = {
+  getData: sinon.stub()
+};
+</code></pre></div>
+<p>The issue with this is the added maintenance of having to remember to update your stubs when you update the real reference, for example changing the method name. To protect ourselves from this issue, we use a helper that takes in a component and returns an object with stubbed versions of any public methods found on the component. You can then use Sinon&#39;s built-in stub methods to check these methods are being called: <code>expect(service.getData.withArgs(id).callCount).toEqual(1);</code></p>
+
+<h4>Code coverage is a lie</h4>
+
+<p>Code coverage is used with good intentions, but can hurt your progress much more than it can help you. The issue is that code coverage tools check that code is executed as part of a test, <strong>not</strong> that it is actually covered by a test. This is dangerous because you can reach a point where your coverage tool reports 100%, whereas the reality can be very different. This means you either need to stop trusting your code coverage, or change the way you think about it and ensure you remember it reports on code that is executed, not tested. Referring back to the quote at the top of this article, putting too much emphasis on just meeting a certain code coverage number means you’re missing the key point of why following TDD is a good idea. We chose to completely remove it, because when you’re following true TDD by writing your tests first, you already know that your code is covered by actual tests.</p>
+
+<h4>Markup shouldn&#39;t contain any logic</h4>
+
+<p>Although Angular allows conditional logic in markup, we decided to remove this functionality from our app. Our reasoning that any logic in our app should be within our code, not within our markup. This isn’t strictly a change we made to our unit tests, but to our app architecture. We still use Angular’s ng-if attributes on elements, but now we only expose a single property on $scope for these conditions.
+So the following code:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;p data-ng-if=“addressIsAvailable &amp;&amp; addressLine1Exists &amp;&amp; addressVisibility”&gt;&lt;/p&gt;
+</code></pre></div>
+<p>turns into this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;p data-ng-if=“shouldShowAddress”&gt;&lt;/p&gt;
+</code></pre></div>
+<p>The logic behind the <code>shouldShowAddress</code> property is then moved into your code, which means it can be unit tested properly. Of course, covering these scenarios could potentially still be achieved using automated feature tests, but keeping all logic inside your code keeps things more consistent and means you get cleaner markup.</p>
+
+<h4>Only test what you need</h4>
+
+<p>As we started moving to a pure TDD approach, we found we were over-compensating quite a lot. We were testing way too much, and this resulted in a lot of unnecessary tests. Here’s an example of a test that hits a service:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">expect(service.getData).toBeDefined();
+expect(service.getData.callCount).toEqual(1);
+expect(service.getData).toEqual(promise);
+promise.resolve(returnedData);
+expect($scope.data).toEqual(expectedData);
+</code></pre></div>
+<p>This sample is checking:</p>
+
+<ul>
+<li>Does the public method of the service exist?</li>
+<li>Was the method called?</li>
+<li>Did the method return a promise?</li>
+<li>When the returned promise is resolved, did it return the data we expect and assign it to a scope value?</li>
+</ul>
+
+<p>What we really want to know, the unit of code we’re really trying to test, is that the service returns the data we expect. So the code above can be turned into the code below, and achieve exactly the same thing:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">promise.resolve(returnedData);
+expect($scope.data).toEqual(expectedData);
+</code></pre></div>
+<p>If the method doesn’t exist or it wasn’t called, the test will still fail, but now we have fewer assertions but we’re still achieving the same level of test coverage. This makes tests much more clear without compromising quality. This way of writing tests also links back to the quote at the top of this article. Before writing code you’re forced to think about what you actually want to happen, what the result of running a method is going to be, and this usually results in higher quality, well architected code.</p>
+
+<h2>References</h2>
+
+<p><a href="http://karma-runner.github.io/0.13/index.html">Karma - Test Runner</a></p>
+
+<p><a href="http://jasmine.github.io/">Jasmine - Javascript Testing Framework</a></p>
+
+<p><a href="http://sinonjs.org/">Sinon - JavaScript spies, stubs and mocks</a></p>
+
+    </section>
+</article>
+<!-- Archive post list -->
+
+
+
+
+
+  </section>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/highlight.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', '', 'auto');
+    ga('send', 'pageview');
+  </script>
+</body>
+</html>
+
+
+
